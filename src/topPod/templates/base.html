@@ -1,0 +1,44 @@
+{% load staticfiles %}
+{% load static %}
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <!-- Latest compiled CSS/bootstrap -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link type="text/css" href="{% static 'css/main.css' %}" rel="stylesheet" >
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- ADsense  -->
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-6274194920745065",
+          enable_page_level_ads: true
+        });
+      </script>
+      <title>Top Sport Podcasts</title>
+    </head>
+    <body>
+		<nav class="navbar navbar-inverse">
+		  <div class="container">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href=" / ">| TopSportPodcasts.com | </a>
+		    </div>
+		    <ul class=" hidden-md hidden-sm hidden-xs nav navbar navbar-nav nav-pills navbar-left navbar-collapse">
+          {% for sport in sports %}
+		      <li><a href="/{{sport.slug}}/">{{sport.name}}</a></li>
+          {% endfor %}
+        </ul> 
+        <ol class="nav navbar navbar-nav nav-pills navbar-right hidden-xs">
+            <li class="search">
+              <form class='form' method="GET" action="{% url 'pods' %}">
+              <input type="text" placeholder="Search Pods..." name="query" value="{{request.GET.query}}">
+              <button class="add btn btn-default" type="submit" ><span class="glyphicon glyphicon-search"></span></button>
+              </form>
+          </li>        
+        </ol> 
+		  </div>
+		</nav>
+        {% block content %}
+        
+        {% endblock %}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>

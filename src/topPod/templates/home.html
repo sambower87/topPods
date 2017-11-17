@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load static %}
+{% block content %}
+<div class="container">
+	<div class="row">
+		{% for sport in sports %}
+		<div class="col-sm-1 hidden-xs">
+			
+		</div>
+		<div class="col-xs-12 col-sm-5 well text-align-center sports">
+			<a href="/{{sport.slug}}/">
+				<h4 class="text-center sport-title">{{sport.name}} Podcasts</h4>
+				<img src="{{sport.image.url}}" class="img-responsive">
+			</a>
+		</div>
+		{% endfor %}
+	</div>	
+</div>	
+
+{% endblock %}

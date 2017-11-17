@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+	<h2 class="sport-title">Search Results</h2>
+	{% if pods.count > 0 %}
+	{% for pod in pods %}
+	<div class="well row pods">
+		<div class="col-xs-12">
+			<a href="{{pod.link}}" target="_blank">
+				<div class="row">
+					<div class="col-xs-4 pod-img-holder">
+						<img src="{{pod.image.url}}" class="img-responsive">
+					</div>
+					<div class="col-xs-7">
+						<h3 class="pod-title">{{pod.name}}</h3>
+						<p>{{pod.description}}</p>
+					</div>	
+					<button class="btn pull-right listen glyphicon glyphicon-headphones"></button>
+				</div>
+			</a>	
+		</div>
+	</div>
+	{% endfor %}
+	{% else %}
+	<div class="row">
+		<div class="col-xs-8">
+			<p>Sorry this search returned no results. Try something else. </p>
+		</div>
+	</div>
+	
+	{% endif %}
+</div>
+
+
+{% endblock %}

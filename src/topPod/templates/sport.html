@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+	<h2 class="sport-title">{{category.name}} Podcasts</h2>
+	{% for pod in pods %}
+	<div class="well row pods">
+		<div class="col-xs-12">
+			<a href="{{pod.link}}" target="_blank">
+				<div class="row">
+					<div class="hidden-xs col-sm-4 pod-img-holder">
+						<img src="{{pod.image.url}}" class="img-responsive">
+					</div>
+					<div class="col-sm-7">
+						<h3 class="pod-title">{{pod.name}}</h3>
+						<p>{{pod.description}}</p>
+					</div>	
+					<button class="btn pull-right listen glyphicon glyphicon-headphones"></button>
+				</div>
+			</a>	
+		</div>
+	</div>
+	{% endfor %}
+</div>
+
+
+{% endblock %}
