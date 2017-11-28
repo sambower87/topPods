@@ -20,12 +20,12 @@ print(BASE_DIR)
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '$!0+z6ws%_=+cb-p-wl(c4z_&j!leh9qi3l==(0tbbsgr1-w*6'
+SECRET_KEY = os.environ.get('SECRET_KEY','$!0+z6ws%_=+cb-p-wl(c4z_&j!leh9qi3l==(0tbbsgr1-w*6')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['toppod.herokuapp.com','.topsportpodcasts.com']
 
 
 # Application definition
@@ -77,9 +77,16 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(os.path.join(BASE_DIR, 'db.sqlite3')),
     }
 }
+
+# Added Production Database
+
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+# DATABASES['default']['CONN_MAX_AGE'] = 500
 
 
 # Password validation

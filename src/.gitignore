@@ -1,12 +1,9 @@
-#added
-*.sublime-project
-*.sublime-workspace
+.DS_Store
+bin/
 include/
 pip-selfcheck.json
-bin/
-db.sqlite3
-
-*.DS_Store
+.py[cod]
+config/settings/local_settings.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -33,7 +30,6 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -62,8 +58,6 @@ coverage.xml
 
 # Django stuff:
 *.log
-.static_storage/
-.media/
 local_settings.py
 
 # Flask stuff:
@@ -97,8 +91,6 @@ celerybeat-schedule
 env/
 venv/
 ENV/
-env.bak/
-venv.bak/
 
 # Spyder project settings
 .spyderproject
